@@ -11,3 +11,8 @@ w = observation.weather
 
 print("В городе " + place + " сейчас " + w.detailed_status)
 print("Температура сейчас: " + str(w.temperature('celsius')["temp"]))
+
+if w.temperature('celsius')["temp"] < 10:
+    print("Оденься потеплее")
+elif w.temperature('celsius')["temp"] < 20:
+    print("Ходи в чем угодно")

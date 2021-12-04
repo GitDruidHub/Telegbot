@@ -111,20 +111,21 @@ def biorhythm(update, context):
     update.message.reply_text(f"Emotional: {user_biorhythm['emotional']}")
     update.message.reply_text(f"Intellectual: {user_biorhythm['intellectual']}")
 
-@bot.message_handler(context_types=["text"])
 def weather(update, message, context):
     print("norm")
 
+    place = str
     owm = pyowm.OWM("5e195eaedcb783c7bf3a21d13e9d10f7")
     weather = {}
     update.message.reply_text = ("В каком городе/стране?: ")
+    context.user_data['gorod_strana'] = place
     mgr = owm.weather_manager()
     # Search for current weather in place and get details
     observation = owm.weather_at_place(message.text)
     w = observation.weather
 
 
-    update.message.reply_text = "В городе " + message.text + " сейчас " + w.detailed_status
+    update.message.reply_text = "В городе " + place + " сейчас " + w.detailed_status
     update.message.reply_text += "Температура сейчас: " + str(w.temperature('celsius')["temp"])
 
     if w.temperature('celsius')["temp"] < 10:

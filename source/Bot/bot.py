@@ -142,7 +142,7 @@ def main():
     TOKEN = "2092697433:AAF-Z9XBCFgg9tX56pI_OkOt6qIBwozjmzU"
 
     # create the updater, that will automatically create also a dispatcher and a queue to
-    # make them dialoge
+    # make them dialoge.
     updater = Updater(TOKEN, use_context=True)
     dispatcher = updater.dispatcher
 
